@@ -227,12 +227,11 @@ class EthErc20Client with Tag {
         await close();
         await Future.delayed(Duration(milliseconds: 500));
         create();
-        await Future.delayed(Duration(milliseconds: 500));
-        return getBalanceEth(address: address);
+      } else {
+        handleError(e, st);
       }
-      handleError(e, st);
-      return null;
     }
+    return null;
   }
 
   Future<EtherAmount?> getBalanceNkn({required String address}) async {
@@ -248,12 +247,11 @@ class EthErc20Client with Tag {
         await close();
         await Future.delayed(Duration(milliseconds: 500));
         create();
-        await Future.delayed(Duration(milliseconds: 500));
-        return getBalanceNkn(address: address);
+      } else {
+        handleError(e, st);
       }
-      handleError(e, st);
-      return null;
     }
+    return null;
   }
 
   /// Returns a hash of the transaction.
@@ -282,10 +280,9 @@ class EthErc20Client with Tag {
         await close();
         await Future.delayed(Duration(milliseconds: 500));
         create();
-        await Future.delayed(Duration(milliseconds: 500));
-        return sendEthereum(credt, address: address, amountEth: amountEth, gasLimit: gasLimit, gasPriceInGwei: gasPriceInGwei);
+      } else {
+        handleError(e, st);
       }
-      handleError(e, st);
       rethrow;
     }
   }
@@ -319,15 +316,14 @@ class EthErc20Client with Tag {
         await close();
         await Future.delayed(Duration(milliseconds: 500));
         create();
-        await Future.delayed(Duration(milliseconds: 500));
-        return sendNknToken(credt, address: address, amountNkn: amountNkn, gasLimit: gasLimit, gasPriceInGwei: gasPriceInGwei);
+      } else {
+        handleError(e, st);
       }
-      handleError(e, st);
       rethrow;
     }
   }
 
-  /*void listenTokenEvent(void callback(EthereumAddress from, EthereumAddress to, EtherAmount balance)) {
+/*void listenTokenEvent(void callback(EthereumAddress from, EthereumAddress to, EtherAmount balance)) {
     _subscription ??= _web3client
         .events(FilterOptions.events(
       contract: Erc20Nkn.contract,

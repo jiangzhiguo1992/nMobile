@@ -904,7 +904,7 @@ class _FixedTextFieldState extends State<FixedTextField> with RestorationMixin i
     final ThemeData theme = Theme.of(context);
     final TextSelectionThemeData selectionTheme = TextSelectionTheme.of(context);
     final TextStyle style = theme.textTheme.subtitle1!.merge(widget.style);
-    final Brightness keyboardAppearance = widget.keyboardAppearance ?? theme.primaryColorBrightness;
+    final Brightness keyboardAppearance = widget.keyboardAppearance ?? theme.brightness;
     final TextEditingController controller = _effectiveController;
     final FocusNode focusNode = _effectiveFocusNode;
     final List<TextInputFormatter> formatters = <TextInputFormatter>[
