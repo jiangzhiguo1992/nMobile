@@ -55,7 +55,7 @@ void main() async {
         options.autoInitializeNativeSdk = true;
         options.enableTracing = true;
         options.attachStacktrace = true;
-        options.attachViewHierarchy = true;
+        options.attachViewHierarchy = false;
         options.idleTimeout = Duration(seconds: 10);
         options.sendClientReports = true;
         options.captureFailedRequests = true;
